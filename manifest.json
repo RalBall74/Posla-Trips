@@ -1,0 +1,49 @@
+{
+  "name": "Posla Trips",
+  "short_name": "Posla",
+  "description": "Your trusted guide to explore Egypt's treasures.",
+  "start_url": "/Posla-Trips/",
+  "scope": "/Posla-Trips/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#232D3C",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/logo.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explore Trips",
+      "short_name": "Explore",
+      "description": "Browse all available trips",
+      "url": "/Posla-Trips/home.html",
+      "icons": [{ "src": "assets/logo.jpg", "sizes": "any" }]
+    }
+  ]
+}

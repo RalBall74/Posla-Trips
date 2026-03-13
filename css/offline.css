@@ -1,0 +1,60 @@
+.offline-notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    width: calc(100% - 40px);
+    max-width: 500px;
+    pointer-events: none;
+}
+
+.offline-notification.show {
+    top: 24px;
+    pointer-events: auto;
+}
+
+.offline-content {
+    background: rgba(239, 68, 68, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 40px rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.offline-content i, .offline-content svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    animation: offline-pulse 2s infinite;
+}
+
+@keyframes offline-pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+[dir="rtl"] .offline-content {
+    direction: rtl;
+}
+
+/* text animation */
+.offline-content span {
+    animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

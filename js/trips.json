@@ -1,0 +1,74 @@
+{
+    "trips": [
+        {
+            "id": 1,
+            "name": "Ghazala hotel",
+            "nameAr": "فندق غزالة",
+            "location": "Dahab, Egypt",
+            "locationAr": "دهب، مصر",
+            "price": "3000",
+            "address": "Blue Hole Rd, Dahab, South Sinai",
+            "openTime": "08:00 AM",
+            "description": "Dahab is a world-renowned diving destination famous for its relaxed atmosphere and stunning natural beauty.",
+            "image": "assets/trips/Dahab.jpg",
+            "gallery": [
+                "assets/trips/Dahab.jpg",
+                "assets/trips/Dahab.jpg",
+                "assets/trips/Dahab.jpg"
+            ],
+            "category": "hotel"
+        },
+        {
+            "id": 2,
+            "name": "Falcon Naama hotel",
+            "nameAr": "فندق فالكون نعمة",
+            "location": "Sharm Elsheikh, Egypt",
+            "locationAr": "شرم الشيخ، مصر",
+            "price": "3000",
+            "address": "Naama Bay, Sharm El Sheikh, South Sinai",
+            "openTime": "09:00 AM",
+            "description": "A major resort center in Egypt, Sharm El Sheikh is known for its beautiful beaches and clear blue waters.",
+            "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.7491849174594!2d34.32285362547192!3d27.909669216540603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145339cd504c36e9%3A0x53b24509d568d937!2z2YHZhtiv2YIg2YHYp9mE2YPZiNmGINmG2LnZhdipINiz2KrYp9ix!5e0!3m2!1sar!2seg!4v1773339158433!5m2!1sar!2seg",
+            "image": "assets/trips/Sharm_Elsheikh.jpg",
+            "gallery": [
+                "assets/trips/Sharm_Elsheikh.jpg",
+                "assets/trips/Sharm_Elsheikh.jpg"
+            ],
+            "category": "hotel"
+        },
+        {
+            "id": 3,
+            "name": "Hurghada",
+            "nameAr": "الغردقة",
+            "location": "Hurghada, Egypt",
+            "locationAr": "الغردقة، مصر",
+            "price": "3000",
+            "address": "Makadi Bay, Hurghada, Red Sea",
+            "openTime": "08:30 AM",
+            "description": "Known for its diving, Hurghada is a vibrant city with plenty of water sports and entertainment options.",
+            "image": "assets/trips/Hurghada.jpg",
+            "gallery": [
+                "assets/trips/Hurghada.jpg",
+                "assets/trips/Hurghada.jpg"
+            ],
+            "category": "hotel"
+        },
+        {
+            "id": 4,
+            "name": "Marsa Alam",
+            "nameAr": "مرسى علم",
+            "location": "Marsa Alam, Egypt",
+            "locationAr": "مرسى علم، مصر",
+            "price": "3000",
+            "address": "Port Ghalib, Marsa Alam, Red Sea",
+            "openTime": "07:00 AM",
+            "description": "A tranquil paradise, Marsa Alam is the perfect spot for nature lovers looking for pristine reefs.",
+            "image": "assets/trips/Marsa_Alam.jpg",
+            "gallery": [
+                "assets/trips/Marsa_Alam.jpg",
+                "assets/trips/"
+            ],
+            "category": "hotel"
+        }
+    ]
+}

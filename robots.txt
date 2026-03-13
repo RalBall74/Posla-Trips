@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ralball74.github.io/Posla-Trips/sitemap.xml

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Posla Trips</title>
+    <link rel="canonical" href="https://ralball74.github.io/Posla-Trips/">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#232D3C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Posla Trips">
+    <link rel="apple-touch-icon" href="assets/logo.jpg">
+    
+    <!-- seo stuff -->
+    <meta name="description" content="Posla is a modern travel platform dedicated to showcasing the beauty of Egypt. Explore the best hotels, beaches, and adventures in Egypt with ease.">
+    <meta name="keywords" content="Egypt tourism, travel Egypt, hotels Egypt, beaches Egypt, Posla Trips, سياحة مصر, فنادق مصر, رحلات مصر">
+    <meta name="author" content="Assem M Abu Alnasr">
+    <meta name="robots" content="index, follow">
+
+    <!-- fb and og tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ralball74.github.io/Posla-Trips/">
+    <meta property="og:title" content="Posla Trips - Explore Egypt's Treasures">
+    <meta property="og:description" content="Your trusted guide to the most beautiful destinations in Egypt. Start your journey today.">
+    <meta property="og:image" content="https://ralball74.github.io/Posla-Trips/assets/logo.jpg">
+
+    <!-- twitter tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ralball74.github.io/Posla-Trips/">
+    <meta property="twitter:title" content="Posla Trips - Explore Egypt's Treasures">
+    <meta property="twitter:description" content="Your trusted guide to the most beautiful destinations in Egypt. Start your journey today.">
+    <meta property="twitter:image" content="https://ralball74.github.io/Posla-Trips/assets/logo.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="auth-overlay">
+        <div class="auth-container" id="auth-container">
+            <!-- login part -->
+            <div class="auth-form-container sign-in">
+                <div class="auth-form">
+                    <div class="auth-logo">
+                        <img src="assets/logo.jpg" alt="Posla Trips Logo" onerror="this.src='https://via.placeholder.com/90'">
+                    </div>
+                    <h1>Welcome Back</h1>
+                    <p>Log in to access Posla Trips.</p>
+                    <button class="auth-google-btn" id="login-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                        Sign in with Google
+                    </button>
+                    <span class="auth-footnote">Privacy is our priority.</span>
+                    <button class="auth-mobile-toggle" onclick="document.getElementById('auth-container').classList.add('active')">
+                        New to Posla Trips? <span>Learn More</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- why u should join -->
+            <div class="auth-form-container benefits-view">
+                <div class="auth-form">
+                    <div class="benefits-icons">
+                        <i data-lucide="shield-check"></i>
+                        <i data-lucide="zap"></i>
+                        <i data-lucide="map"></i>
+                    </div>
+                    <h1>Posla Trips</h1>
+                    <p>Your ultimate platform for creating and managing trips.</p>
+                    <button class="auth-mobile-toggle" onclick="document.getElementById('auth-container').classList.remove('active')">
+                        Ready to sign in? <span>Go Back</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- side slider thing -->
+            <div class="auth-toggle-container">
+                <div class="auth-toggle">
+                    <div class="auth-toggle-panel auth-toggle-left">
+                        <h1>New here?</h1>
+                        <p>Discover an easy way to manage all your journeys.</p>
+                        <button class="auth-sec-btn" onclick="document.getElementById('auth-container').classList.remove('active')">Back to Login</button>
+                    </div>
+                    <div class="auth-toggle-panel auth-toggle-right">
+                        <h1>Start Your Journey</h1>
+                        <p>Experience the easiest way to organize trips today.</p>
+                        <button class="auth-sec-btn" onclick="document.getElementById('auth-container').classList.add('active')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/offline.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script>
+        // register sw
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('posla sw registered:', reg.scope))
+                    .catch(err => console.log('posla sw failed:', err));
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

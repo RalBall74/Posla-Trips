@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Posla Admin Panel</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- lock screen -->
+    <div id="lock-screen">
+        <div class="lock-container">
+            <div class="lock-logo">
+                <img src="assets/logo.jpg" alt="Logo">
+            </div>
+            <h1>Posla Admin</h1>
+            <p class="lock-subtitle">Enter password to access the dashboard</p>
+            <div class="lock-input-wrap">
+                <i data-lucide="lock" class="lock-icon"></i>
+                <input type="password" id="lock-password" placeholder="Enter password" autocomplete="off">
+                <button id="lock-eye-btn" type="button">
+                    <i data-lucide="eye-off" id="lock-eye-icon"></i>
+                </button>
+            </div>
+            <p id="lock-error" class="lock-error"></p>
+            <button id="lock-submit" class="lock-btn">
+                <i data-lucide="log-in"></i>
+                <span>Enter Dashboard</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- admin dashboard -->
+    <div id="admin-dashboard" class="hidden">
+        <!-- top bar -->
+        <header class="admin-header">
+            <div class="header-left">
+                <img src="assets/logo.jpg" alt="Logo" class="admin-logo">
+                <div>
+                    <h1>Admin Panel</h1>
+                    <p class="header-sub">Manage Posla Trips</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <span id="trip-count" class="badge">0 trips</span>
+                <button id="logout-btn" class="btn-icon" title="Lock">
+                    <i data-lucide="lock"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- action bar -->
+        <div class="action-bar">
+            <div class="search-wrap">
+                <i data-lucide="search"></i>
+                <input type="text" id="admin-search" placeholder="Search trips...">
+            </div>
+            <button id="add-trip-btn" class="btn-primary">
+                <i data-lucide="plus"></i>
+                <span>Add Trip</span>
+            </button>
+            <button id="seed-btn" class="btn-seed" title="Upload existing trips.json to Firebase (first time only)">
+                <i data-lucide="upload-cloud"></i>
+                <span>Seed DB</span>
+            </button>
+        </div>
+
+        <!-- trips grid -->
+        <div id="admin-trips-grid" class="trips-grid"></div>
+
+        <!-- empty state -->
+        <div id="empty-state" class="empty-state hidden">
+            <i data-lucide="map-pin-off"></i>
+            <h3>No trips found</h3>
+            <p>Add ur first trip to get started</p>
+        </div>
+    </div>
+
+    <!-- add/edit modal -->
+    <div id="trip-modal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Trip</h2>
+                <button id="modal-close" class="btn-icon">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="edit-trip-id">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Trip Name (EN)</label>
+                        <input type="text" id="trip-name" placeholder="e.g. Ghazala Hotel">
+                    </div>
+                    <div class="form-group">
+                        <label>Trip Name (AR)</label>
+                        <input type="text" id="trip-nameAr" placeholder="e.g. فندق غزالة" dir="rtl">
+                    </div>
+                    <div class="form-group">
+                        <label>Location (EN)</label>
+                        <input type="text" id="trip-location" placeholder="e.g. Dahab, Egypt">
+                    </div>
+                    <div class="form-group">
+                        <label>Location (AR)</label>
+                        <input type="text" id="trip-locationAr" placeholder="e.g. دهب، مصر" dir="rtl">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (EGP)</label>
+                        <input type="text" id="trip-price" placeholder="e.g. 3000">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="trip-category">
+                            <option value="hotel">Hotel</option>
+                            <option value="Beach">Beach</option>
+                            <option value="Camp">Camp</option>
+                            <option value="Mountains">Mountains</option>
+                            <option value="Popular">Popular</option>
+                            <option value="Recommended">Recommended</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full">
+                    <label>Address</label>
+                    <input type="text" id="trip-address" placeholder="e.g. Blue Hole Rd, Dahab, South Sinai">
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Open Time</label>
+                        <input type="text" id="trip-openTime" placeholder="e.g. 08:00 AM">
+                    </div>
+                    <div class="form-group">
+                        <label>Main Image</label>
+                        <!-- hidden: keeps the url if already uploaded -->
+                        <input type="hidden" id="trip-image">
+                        <div class="upload-zone" id="main-img-zone">
+                            <input type="file" id="main-img-input" accept="image/*" hidden>
+                            <div class="upload-placeholder" id="main-img-placeholder">
+                                <i data-lucide="image-plus"></i>
+                                <span>Click to pick image</span>
+                            </div>
+                            <img id="main-img-preview" class="upload-preview hidden" alt="preview">
+                            <button type="button" id="main-img-clear" class="upload-clear hidden">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label>Map Embed URL (optional)</label>
+                    <input type="text" id="trip-mapUrl" placeholder="Google Maps embed URL">
+                </div>
+                <div class="form-group full">
+                    <label>Description</label>
+                    <textarea id="trip-description" rows="3" placeholder="Write a brief description..."></textarea>
+                </div>
+                <div class="form-group full">
+                    <label>Gallery Images <span class="label-hint">(pick multiple from device)</span></label>
+                    <!-- hidden: comma-separated urls after upload -->
+                    <input type="hidden" id="trip-gallery">
+                    <div class="gallery-upload-zone" id="gallery-zone">
+                        <input type="file" id="gallery-input" accept="image/*" multiple hidden>
+                        <button type="button" id="gallery-add-btn" class="gallery-add-btn">
+                            <i data-lucide="plus"></i>
+                            Add Images
+                        </button>
+                        <div id="gallery-previews" class="gallery-previews"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-save" class="btn-primary">
+                    <i data-lucide="save"></i>
+                    <span>Save Trip</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- delete confirm modal -->
+    <div id="delete-modal" class="modal-overlay hidden">
+        <div class="modal-container modal-sm">
+            <div class="delete-modal-body">
+                <div class="delete-icon-wrap">
+                    <i data-lucide="trash-2"></i>
+                </div>
+                <h2>Delete Trip?</h2>
+                <p>This action can't be undone. The trip "<span id="delete-trip-name"></span>" will be removed.</p>
+                <div class="delete-actions">
+                    <button id="delete-cancel" class="btn-secondary">Cancel</button>
+                    <button id="delete-confirm" class="btn-danger">
+                        <i data-lucide="trash-2"></i>
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- toast -->
+    <div id="toast" class="toast hidden">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-msg">Action completed</span>
+    </div>
+
+    <script src="js/offline.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

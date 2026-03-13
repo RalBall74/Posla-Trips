@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Posla Trips</title>
+    <link rel="canonical" href="https://ralball74.github.io/Posla-Trips/home.html">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#232D3C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Posla Trips">
+    <link rel="apple-touch-icon" href="assets/logo.jpg">
+
+    <!-- seo stuff -->
+    <meta name="description" content="Discover the best of Egypt with Posla Trips. From luxury hotels to hidden camping spots and pristine beaches. Your all-in-one Egypt travel guide.">
+    <meta name="keywords" content="Egypt travel, Red Sea, Sinai, resorts Egypt, Nile tours, Posla, سياحة داخلية مصر, شواطئ صيف 2024">
+    <meta name="author" content="Assem M Abu Alnasr">
+    <meta name="robots" content="index, follow">
+
+    <!-- fb and og tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ralball74.github.io/Posla-Trips/home.html">
+    <meta property="og:title" content="Explore Egypt's Beauty with Posla Trips">
+    <meta property="og:description" content="The ultimate destination for travelers seeking the best experiences in Egypt. Hotels, Camps, and more.">
+    <meta property="og:image" content="https://ralball74.github.io/Posla-Trips/assets/logo.jpg">
+
+    <!-- twitter tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ralball74.github.io/Posla-Trips/home.html">
+    <meta property="twitter:title" content="Explore Egypt's Beauty with Posla Trips">
+    <meta property="twitter:description" content="The ultimate destination for travelers seeking the best experiences in Egypt. Hotels, Camps, and more.">
+    <meta property="twitter:image" content="https://ralball74.github.io/Posla-Trips/assets/logo.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="home-body">
+    <!-- sidebar for big screens -->
+    <div class="desktop-sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/logo.jpg" alt="Logo" style="width: 60px; height: 60px; border-radius: 12px; object-fit: cover;">
+            <h1>Posla Trips</h1>
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-item active" id="nav-explore">
+                <i data-lucide="home"></i>
+                <span>Explore</span>
+            </div>
+            <div class="nav-item" id="nav-favorites">
+                <i data-lucide="heart"></i>
+                <span>Favorites</span>
+            </div>
+            <div class="nav-item" id="nav-trips">
+                <i data-lucide="map"></i>
+                <span>My Trips</span>
+            </div>
+            <div class="nav-item" id="nav-settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="nav-item" id="sidebar-logout">
+                <i data-lucide="log-out"></i>
+                <span>Sign Out</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- main view here -->
+    <div class="home-container" id="main-exploration-view">
+        <!-- top part -->
+        <div class="header-top">
+            <div class="header-text">
+                <h2 id="title-part-1">Where do</h2>
+                <h1 id="title-part-2">you want to go?</h1>
+            </div>
+            <div class="header-avatar" id="avatar-trigger" style="cursor: pointer;">
+                <img id="user-avatar" src="assets/me.jpg" alt="User Avatar" onerror="this.src='https://ui-avatars.com/api/?name=User&background=6b7280&color=fff'">
+            </div>
+        </div>
+
+        <!-- find stuff here -->
+        <div class="search-container">
+            <i data-lucide="search" class="search-icon" width="22" height="22"></i>
+            <input type="text" id="search-input" placeholder="Discover a places">
+            <i data-lucide="sliders-horizontal" class="filter-icon" width="22" height="22"></i>
+        </div>
+
+        <!-- cities u can visit -->
+        <div class="section-header">
+            <h3>Explore Cities</h3>
+        </div>
+
+        <div class="tabs-scroll">
+            <div class="tab-item active" data-cat="All">All</div>
+            <div class="tab-item" data-cat="hotel">Hotels</div>
+            <div class="tab-item" data-cat="Popular">Popular</div>
+            <div class="tab-item" data-cat="Recommended">Recommended</div>
+        </div>
+
+        <div class="cards-scroll" id="trips-container">
+            <!-- trips load here -->
+        </div>
+
+    </div>
+
+    <!-- mobile nav bar -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-item active" id="mob-nav-explore">
+            <i data-lucide="home"></i>
+            <span>Explore</span>
+        </div>
+        <div class="mobile-nav-item" id="mob-nav-favorites">
+            <i data-lucide="heart"></i>
+            <span>Favorites</span>
+        </div>
+        <div class="mobile-nav-item" id="mob-nav-trips">
+            <i data-lucide="map"></i>
+            <span>My Trips</span>
+        </div>
+        <div class="mobile-nav-item" id="mob-nav-settings">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+        </div>
+    </div>
+
+    <!-- popups start here -->
+    
+    <!-- edit ur profile -->
+    <div id="settings-view" class="details-overlay hidden">
+        <div class="details-container settings-container-box">
+            <div class="settings-header">
+                <button class="icon-btn" id="close-settings-btn">
+                    <i data-lucide="arrow-left"></i>
+                </button>
+                <h2>Profile & Settings</h2>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-section">
+                    <div class="profile-edit-card">
+                        <div class="profile-preview">
+                            <img id="settings-avatar-preview" src="assets/me.jpg" alt="Preview">
+                            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                            <button class="edit-avatar-badge" id="change-avatar-btn">
+                                <i data-lucide="camera" width="16"></i>
+                            </button>
+                        </div>
+                        <div class="profile-inputs">
+                            <div class="input-group">
+                                <label>Display Name</label>
+                                <input type="text" id="profile-name-input" placeholder="Enter your name">
+                            </div>
+                            <button class="save-profile-btn" id="save-profile-btn">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-list-section">
+                    <h3 id="label-preferences">Preferences</h3>
+                    <div class="settings-item">
+                        <div class="settings-item-info">
+                            <i data-lucide="moon"></i>
+                            <span id="label-darkmode">Dark Mode</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-info">
+                            <i data-lucide="languages"></i>
+                            <span id="label-lang">Language</span>
+                        </div>
+                        <select id="language-select" class="settings-select">
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                    </div>
+                    <div class="settings-item" id="payment-trigger">
+                        <div class="settings-item-info">
+                            <i data-lucide="credit-card"></i>
+                            <span id="label-payment">Payment Methods</span>
+                        </div>
+                        <i data-lucide="chevron-right" width="18"></i>
+                    </div>
+                </div>
+
+                <div class="settings-list-section">
+                    <h3 id="label-support">Support</h3>
+                    <div class="settings-item" id="contact-trigger">
+                        <div class="settings-item-info">
+                            <i data-lucide="help-circle"></i>
+                            <span id="label-contact">About Posla & Contact Us</span>
+                        </div>
+                        <i data-lucide="chevron-right" width="18"></i>
+                    </div>
+                </div>
+
+                <button class="logout-full-btn" id="settings-logout">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- info about us -->
+    <div id="about-contact-view" class="details-overlay hidden">
+        <div class="details-container settings-container-box">
+            <div class="settings-header">
+                <button class="icon-btn" id="close-about-btn">
+                    <i data-lucide="arrow-left"></i>
+                </button>
+                <h2 id="about-title-header">About & Contact</h2>
+            </div>
+
+            <div class="settings-content about-page-content">
+                <div class="about-app-card">
+                    <img src="assets/logo.jpg" alt="Logo" class="about-logo">
+                    <h1 class="about-app-name">Posla Trips</h1>
+                    <p class="about-tagline" id="about-tagline">Your trusted guide to explore Egypt's treasures.</p>
+                </div>
+
+                <div class="settings-list-section">
+                    <h3 id="label-about-us">About Posla</h3>
+                    <p class="about-description" id="about-description">
+                        Posla is a modern travel platform dedicated to showcasing the beauty of Egypt. We help travelers find the best hotels, beaches, and adventures with ease and style.
+                    </p>
+                </div>
+
+                <div class="settings-list-section">
+                    <h3 id="label-founders">Founders & Developer</h3>
+                    <div class="founders-info">
+                        <div class="founder-row">
+                            <span class="role-label" id="role-founders">Founders:</span>
+                            <span class="names-list">Eng. Islam Ragab <br> Eng. Amir Ragab <br> Eng. Sameh Ragab</span>
+                        </div>
+                        <div class="founder-row">
+                            <span class="role-label" id="role-developer">Developer:</span>
+                            <span class="names-list">Assem M Abu Alnasr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-list-section">
+                    <h3 id="label-connect">Connect With Us</h3>
+                    <div class="contact-grid">
+                        <a href="mailto:poslatrips@gmail.com" class="contact-card">
+                            <i data-lucide="mail"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://wa.me/201068658594" target="_blank" class="contact-card">
+                            <i data-lucide="message-circle"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://www.facebook.com/share/14WQsUbDXp6/" class="contact-card">
+                            <i data-lucide="facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/poslatrips?igsh=NWJtN2c1dzZ4anlw" class="contact-card">
+                            <i data-lucide="instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="tel:+201068658594" class="contact-card">
+                            <i data-lucide="phone"></i>
+                            <span>Phone</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="trip-details-view" class="details-overlay hidden">
+        <div class="details-container">
+            <div class="hero-section">
+                <img id="detail-main-image" class="hero-image" src="" alt="Trip Hero">
+                <div class="hero-controls">
+                    <button class="icon-btn" id="close-details-btn">
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                    <div class="right-controls">
+                        <button class="icon-btn"><i data-lucide="download"></i></button>
+                        <button class="icon-btn" id="detail-heart-btn"><i data-lucide="heart"></i></button>
+                    </div>
+                </div>
+                <div class="gallery-overlay" id="detail-gallery-container"></div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-header">
+                    <div>
+                        <h1 id="detail-trip-name">Name</h1>
+                        <p id="detail-trip-location" class="location-name">Location</p>
+                    </div>
+                    <div class="price-box">
+                        <div class="amount" id="detail-trip-price">EGP 0</div>
+                        <div class="label" id="label-per-person">per person</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="desktop-details-layout">
+                    <div class="details-text-group">
+                        <div class="detail-row">
+                            <div class="detail-icon"><i data-lucide="map-pin"></i></div>
+                            <div class="detail-content"><p id="detail-trip-address">Address</p></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-icon"><i data-lucide="clock"></i></div>
+                            <div class="detail-content">
+                                <div class="status" id="label-status">OPEN</div>
+                                <p id="detail-trip-open-time">09:00 AM</p>
+                            </div>
+                        </div>
+                        <p id="detail-trip-desc" class="trip-desc">Description</p>
+                    </div>
+                    <div class="map-column">
+                        <div class="map-view">
+                            <iframe id="detail-map-iframe" width="100%" height="100%" frameborder="0" style="border:0; border-radius: 24px;" allowfullscreen="" loading="lazy"></iframe>
+                            <div class="map-overlay">
+                                <button id="map-layers-btn" class="map-btn"><i data-lucide="layers" width="20"></i></button>
+                                <button id="map-nav-btn" class="map-btn"><i data-lucide="navigation-2" width="20"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js magic happens here -->
+    <script src="js/offline.js"></script>
+    <script type="module" src="js/home.js"></script>
+    <script>
+        // register sw
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('posla sw registered:', reg.scope))
+                    .catch(err => console.log('posla sw failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
